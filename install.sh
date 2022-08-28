@@ -11,7 +11,7 @@ fi
 pacman -Sy git --noconfirm
 git clone https://aur.archlinux.org/aura-bin.git
 cd aura-bin
- su su - "$USER" -c makepkg -s
+su - "$USER" -c makepkg -s
 
 aura_file=$(find . -type f -name "aura-*")
 
