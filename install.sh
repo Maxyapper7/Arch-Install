@@ -1,17 +1,10 @@
 #!/bin/bash
 
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
-  exit
-fi
-
-
 #Aura Install
-#!/bin/bash
-pacman -Sy git --noconfirm
+sudo pacman -Sy git --noconfirm
 git clone https://aur.archlinux.org/aura-bin.git
 cd aura-bin
-su -l -command "$USER" makepkg -s
+makepkg -s
 
 aura_file=$(find . -type f -name "aura-*")
 
@@ -23,21 +16,21 @@ sudo pacman -U "$aura_file"
 
 #QEMU & KVM Install
 #Working
-pacman -S qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat --noconfirm
-pacman -S ebtables iptables --noconfirm
-systemctl enable libvirtd.service
-usermod -a -G libvirt $(whoami) --noconfirm
-systemctl restart libvirtd.service
+sudo pacman -S qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat --noconfirm
+sudo pacman -S ebtables iptables --noconfirm
+sudo systemctl enable libvirtd.service
+sudo usermod -a -G libvirt $(whoami) --noconfirm
+sudo systemctl restart libvirtd.service
 
 
 #Install Flatpak
-pacman -S flatpak --noconfirm
+sudo pacman -S flatpak --noconfirm
 
 #Install Flathub Packages
-flatpak install flathub com.obsproject.Studio com.valvesoftware.Steam net.davidotek.pupgui2 com.visualstudio.code com.discordapp.Discord flatpak install flathub net.lutris.Lutris com.usebottles.bottles -y
-flatpak install flathub us.zoom.Zoom org.onlyoffice.desktopeditors org.videolan.VLC -y
+sudo flatpak install flathub com.obsproject.Studio com.valvesoftware.Steam net.davidotek.pupgui2 com.visualstudio.code com.discordapp.Discord flatpak install flathub net.lutris.Lutris com.usebottles.bottles -y
+sudo flatpak install flathub us.zoom.Zoom org.onlyoffice.desktopeditors org.videolan.VLC -y
 
 #Install Github Desktop
-aura -A github-desktop
+sudo aura -A github-desktop
 
 echo Done
