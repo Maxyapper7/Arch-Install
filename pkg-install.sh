@@ -9,11 +9,11 @@ systemctl restart libvirtd.service
 
 
 #Install Flatpak
-pacman -S flatpak --noconfirm
+aura -S flatpak --noconfirm
 
 #Install Flathub Packages
 flatpak install flathub com.obsproject.Studio com.valvesoftware.Steam net.davidotek.pupgui2 com.visualstudio.code com.discordapp.Discord flatpak install flathub net.lutris.Lutris com.usebottles.bottles -y
 flatpak install flathub us.zoom.Zoom org.onlyoffice.desktopeditors org.videolan.VLC -y
 
 #Install Github Desktop
-aura -A github-desktop
+aura -A github-desktop --noconfirm
