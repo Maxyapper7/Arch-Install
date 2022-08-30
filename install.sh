@@ -1,9 +1,9 @@
 #!/bin/bash
 
-./aura-install
+./aura-install.sh
 
 sudo ./pkg-install.sh
 
+#sudo ./theme-install.sh
 
-
-echo Done
+echo Please Reboot

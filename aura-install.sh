@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo pacman -Sy git --noconfirm
 git clone https://aur.archlinux.org/aura-bin.git
 cd aura-bin
